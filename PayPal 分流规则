@@ -1,0 +1,65 @@
+{
+  "policy-groups": [
+    {
+      "name": "Proxy",
+      "type": "select",
+      "policies": [
+        "SpecialNode",
+        "DIRECT",
+        "其他节点"
+      ]
+    },
+    {
+      "name": "PayPal",
+      "type": "select",
+      "policies": [
+        "SpecialNode",
+        "DIRECT"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "domain": "paypal.com",
+      "policy": "PayPal"
+    },
+    {
+      "domain-suffix": "paypal.com",
+      "policy": "PayPal"
+    },
+    {
+      "domain-suffix": "paypalobjects.com",
+      "policy": "PayPal"
+    },
+    {
+      "domain-keyword": "paypal",
+      "policy": "PayPal"
+    },
+    {
+      "source-app": "com.paypal.iphone",
+      "policy": "PayPal"
+    },
+    {
+      "source-app": "com.paypal.android.p2pmobile",
+      "policy": "PayPal"
+    }
+  ],
+  "nodes": [
+    {
+      "name": "SpecialNode",
+      "type": "http",
+      "server": "special-node.server.com",
+      "port": 8080,
+      "username": "your-username",
+      "password": "your-password"
+    },
+    {
+      "name": "其他节点",
+      "type": "http",
+      "server": "other-node.server.com",
+      "port": 8080,
+      "username": "your-username",
+      "password": "your-password"
+    }
+  ]
+}
